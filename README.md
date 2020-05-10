@@ -20,7 +20,9 @@
 
 # Información
 * __Documentación:__ `10/05/20`
-* __Versión actual:__ `0.4.0`
+* __Versión actual:__ `1.0`
+* __Estado:__ `Terminado y estable`
+* __Plataforma:__ `Windows all`
 * __Lenguaje:__ `Python 3.7` <== _NOTA:_ Solo funciona en esa versión
 
 # Caracteristicas BoOm
@@ -39,8 +41,18 @@
 * __Bloqueo de Perifericos:__ Se deshabilitará los eventos del Mouse y Teclado 
 * __StartUp:__ Sobrescribe el registro, causando que se autoinicie en todos los `usuarios` existentes o solo en la actual.
 * __Sistema inteligente de BoOm:__ Al ejecutarlo por primera vez, el virus solo se ocultará en el sistema y modificará el registro para que se autoinicie, luego de este proceso el virus se cerrará dejando la computadora intacta. La explosión del virus comienza en la siguiente vez que la PC infectada inicie sesión, el virus recien hará boOm.
-* __CPU 100%:__ El virus ejecutará muchos procesos independientes que lograrán saturár el procesador.
+* __CPU 100%:__ El virus ejecutará en simultaneo muchos procesos exponencial independientes de calculos mátematicos, lo cual en segundos saturará tu procesador.  `Probado en un Ryzen 52400g`
 * __RAM 100%:__ Por los distintos procesos que se realizarán tambien la RAM terminará usandose
+* __Ejecuta programas:__ Abrirá una cantidad de programas predeterminados como paneles de control, word, block de notas, etc. `En desarrollo...`
 
-__Librerías utilizada:__
-__Lib:__  [KeyAndMouse_Block](https://github.com/SebastianEPH/KeyAndMouse_Block) <== Bloquea los eventos del teclado y el mouse
+__Recursos utilizados:__
+* __Función:__  [KeyAndMouse_Block](https://github.com/SebastianEPH/KeyAndMouse_Block) <== Bloquea los eventos del teclado y el mouse
+* __Función:__ [100 %CPU](https://github.com/SebastianEPH/CPU_Stress)
+
+<!-- Creador  -->
+---
+## By SebastianEPH
+- [Github](https://github.com/SebastianEPH)
+- [Facebook](https://www.facebook.com/SebastianEPH)
+- [Linkedin](https://www.linkedin.com/in/sebastianeph/)
+- [Telegram](https://t.me/sebastianeph)
