@@ -1,0 +1,15 @@
+https://github.com/SebastianEPH/EXE_Bomb_Windows
+Python 3.7 <> v1.0
+
+Virus troyano que deja inutilizable Windows
+* Satura CPU 100% [Hilos y nucleos]
+* Satura RAM
+* Ejecución en segundo plano
+* Solo Windows (Todas las versiones)
+* Bloquea eventos del Mouse y Teclado
+* Satura Velocidad de tranferecia de la unidad C
+* Llena el espacio disponible de la unidad C
+* Se autoinicia con el sistema [Todos los usuarios]
+* El Troyano se oculta y hace copias infinitas de el mismo
+* Sistema inteligente de BoOm: Al ejecutarlo por primera vez, el virus solo se ocultará en el sistema y modificará el registro para que se autoinicie, luego de este proceso el virus se cerrará dejando la computadora intacta. La explosión del virus comienza en la siguiente vez que la PC infectada inicie sesión, el virus recien hará boOm.
+* No termux

