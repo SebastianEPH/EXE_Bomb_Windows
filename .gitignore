@@ -1,4 +1,8 @@
 #DataShared.txt
+*.spec
+*.log 
 
-build
-__pycache__
+
+
+build/
+__pycache__/

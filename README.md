@@ -1,10 +1,10 @@
 ````
-██╗░░░██╗██╗██████╗░██╗░░░██╗░██████╗  ██████╗░░█████╗░░█████╗░███╗░░░███╗
-██║░░░██║██║██╔══██╗██║░░░██║██╔════╝  ██╔══██╗██╔══██╗██╔══██╗████╗░████║
-╚██╗░██╔╝██║██████╔╝██║░░░██║╚█████╗░  ██████╦╝██║░░██║██║░░██║██╔████╔██║
-░╚████╔╝░██║██╔══██╗██║░░░██║░╚═══██╗  ██╔══██╗██║░░██║██║░░██║██║╚██╔╝██║
-░░╚██╔╝░░██║██║░░██║╚██████╔╝██████╔╝  ██████╦╝╚█████╔╝╚█████╔╝██║░╚═╝░██║
-░░░╚═╝░░░╚═╝╚═╝░░╚═╝░╚═════╝░╚═════╝░  ╚═════╝░░╚════╝░░╚════╝░╚═╝░░░░░╚═╝
+██╗░░░██╗██╗██████╗░██╗░░░██╗░██████╗  ██████╗░░█████╗░███╗░░░███╗██████╗░
+██║░░░██║██║██╔══██╗██║░░░██║██╔════╝  ██╔══██╗██╔══██╗████╗░████║██╔══██╗
+╚██╗░██╔╝██║██████╔╝██║░░░██║╚█████╗░  ██████╦╝██║░░██║██╔████╔██║██████╦╝
+░╚████╔╝░██║██╔══██╗██║░░░██║░╚═══██╗  ██╔══██╗██║░░██║██║╚██╔╝██║██╔══██╗
+░░╚██╔╝░░██║██║░░██║╚██████╔╝██████╔╝  ██████╦╝╚█████╔╝██║░╚═╝░██║██████╦╝
+░░░╚═╝░░░╚═╝╚═╝░░╚═╝░╚═════╝░╚═════╝░  ╚═════╝░░╚════╝░╚═╝░░░░░╚═╝╚═════╝░
 
 ░██╗░░░░░░░██╗██╗███╗░░██╗██████╗░░█████╗░░██╗░░░░░░░██╗░██████╗
 ░██║░░██╗░░██║██║████╗░██║██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝
@@ -15,7 +15,9 @@
 ````
 
 # Advertencia
-Ésta herramienta sumamente destructiva, usarlo bajo sus propio criterio, una vez la pc está infectada, la unica solución es reinstalar windows,
+Ésta herramienta sumamente destructiva, usarlo bajo sus propio criterio, una vez la pc está infectada, la unica solución es reinstalar windows. 
+
+__[Solo fines educativos, Todo el código está completamente comentado]__
 
 
 # Información
@@ -25,7 +27,18 @@
 * __Plataforma:__ `Windows all`
 * __Lenguaje:__ `Python 3.7` <== _NOTA:_ Solo funciona en esa versión
 
-# Caracteristicas BoOm
+# Contenido de Repositorio
+![Contenido del repositorio](https://i.imgur.com/1bBiYVg.png)
+
+* __Folder CompiladoEXE :__ Contiene `EXE_Bomb_Windows.exe`  <== EXE Destructivo [Cuidado con ejecutarlo]
+* __Compile.bat :__ Convierte `EXE_Bomb_Windows.py` a `EXE_Bomb_Windows.exe`
+* __EXE_Bomb_Windows.py :__ Codigo del repositorio
+* __information.txt :__ Propiedades del programa. `Se puede modificar a su gusto`
+* __README .md :__ `Documentación`
+* __SEPH.ico :__ `Icono del dueño del repositorio`
+
+
+# Caracteristicas
 * El virus se replica en las siguientes directorios:
     * `'C:\Users\' + UserName +'\Documents'`
     * `'C:\Users\' + UserName +'\Music'`
@@ -46,9 +59,18 @@
 * __RAM 100%:__ Por los distintos procesos que se realizarán tambien la RAM terminará usandose
 * __Ejecuta programas:__ Abrirá una cantidad de programas predeterminados como paneles de control, word, block de notas, etc. `En desarrollo...`
 
+
+# Compilación
+* Solo hay que ejecutar el archivo `Compile.bat` y empesará el proceso de compilación, se recomienda no cambiar de nombre del archivo.
+
+    ![](https://i.imgur.com/7hMN0aW.png)
+* Y al finalizar tendrá el archivo.
+
+    ![](https://i.imgur.com/SHKHeKl.png)
+
 __Recursos utilizados:__
 * __Función:__  [KeyAndMouse_Block](https://github.com/SebastianEPH/KeyAndMouse_Block) <== Bloquea los eventos del teclado y el mouse
-* __Función:__ [100 %CPU](https://github.com/SebastianEPH/CPU_Stress)
+* __Función:__ [100 %CPU](https://github.com/SebastianEPH/CPU_Stress) <= un conjunto de calculos básicos matemáticos y bucles exponenciales.
 
 <!-- Creador  -->
 ---
